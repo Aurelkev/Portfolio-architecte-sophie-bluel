@@ -47,7 +47,9 @@ getCategories();
 
 function createFilter(data) {
   const div = document.createElement("div");
+  div.addEventListener("click", () => console.log("Hello"));
   div.innerHTML = data.name;
-
   document.querySelector(".filter-container").append(div);
 }
+
+document.querySelector(".all").addEventListener('click', () => getWorks());
