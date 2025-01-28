@@ -22,5 +22,5 @@ function createFigure(data) {
   figure.innerHTML = `<img src=${data.imageUrl} alt=${data.title}>
 				<figcaption>${data.title}</figcaption>`;
 
-  document.body.append(figure);
+  document.querySelector(".gallery").append(figure);
 }
