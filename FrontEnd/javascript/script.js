@@ -10,7 +10,7 @@ async function getWorks(filter) {
     const filtered = json.filter((data) => data.categoryId === filter);
 
     document.querySelector(".gallery").innerHTML = "";
-    
+
     if (filter === undefined) {
       for (let i = 0; i < json.length; i++) {
         createFigure(json[i]);
@@ -63,3 +63,4 @@ function createFilter(data) {
   document.querySelector(".filter-container").append(div);
 }
 
+document.querySelector(".all").addEventListener("click", () => getWorks());
