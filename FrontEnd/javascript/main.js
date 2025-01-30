@@ -1,3 +1,6 @@
+// Script for index.html
+
+
 async function getWorks(filter) {
   const url = "http://localhost:5678/api/works";
   try {
