@@ -2,10 +2,12 @@
 
 const loginApi = "http://localhost:5678/api/users/login";
 
+document.getElementById("loginForm").addEventListener("submit", submit);
+
 async function submit() {
   let user = {
-    email: "sophie.bluel@test.tld",
-    password: "S0phie"
+    email: document.getElementById("email").value,
+    password: document.getElementById("password").value
   };
 
   let response = await fetch(loginApi, {
@@ -19,6 +21,12 @@ async function submit() {
 
   let result = await response.json();
   console.log(result);
-}
+  console.log(user.email);
+  console.log(user.password);
+};
 
-submit();
+
+/* let user = {
+  email: "sophie.bluel@test.tld",
+  password: "S0phie"
+}; */
