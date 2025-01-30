@@ -2,7 +2,10 @@
 
 const loginApi = "http://localhost:5678/api/users/login";
 
-document.getElementById("loginForm").addEventListener("submit", submit);
+document.getElementById("loginForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+  submit();
+});
 
 async function submit() {
   let user = {
@@ -11,7 +14,6 @@ async function submit() {
   };
 
   let response = await fetch(loginApi, {
-
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -24,6 +26,7 @@ async function submit() {
   console.log(user.email);
   console.log(user.password);
 };
+
 
 
 /* let user = {
