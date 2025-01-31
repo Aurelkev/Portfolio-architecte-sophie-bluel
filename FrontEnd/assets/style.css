@@ -154,6 +154,10 @@ body {
 	margin-left: calc(-50vw + 50%);
 }
 
+.hidden {
+	display: none;
+}
+
 .edit-mode i {
 	padding-right: 0.5rem;
 }

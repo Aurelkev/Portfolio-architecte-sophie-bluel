@@ -67,3 +67,12 @@ function createFilter(data) {
 }
 
 document.querySelector(".all").addEventListener("click", () => getWorks());
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const displayEdit = document.querySelector(".edit-mode");
+  
+  if (sessionStorage.getItem("authToken")) {
+      displayEdit.classList.remove("hidden");
+  }
+});
