@@ -12,7 +12,7 @@ async function submit() {
     email: document.getElementById("email").value,
     password: document.getElementById("password").value
   };
-
+  console.log(user);
   let response = await fetch(loginApi, {
     method: "POST",
     headers: {

@@ -143,6 +143,21 @@ body {
 	background-color: #FFFEF8;
 }
 
+.edit-mode {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: black;
+	height: 2.5rem;
+	color: white;
+	width: 100vw;
+	margin-left: calc(-50vw + 50%);
+}
+
+.edit-mode i {
+	padding-right: 0.5rem;
+}
+
 header {
 	display: flex;
 	justify-content: space-between;
