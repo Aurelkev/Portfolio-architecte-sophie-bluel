@@ -20,7 +20,8 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
-
-
-
-/* <i class="fa-solid fa-trash"></i> */
+function createFigure(data) {
+  const figure = document.createElement("figure");
+  figure.innerHTML = `<img src=${data.imageUrl} alt=${data.title}>`;
+  document.querySelector(".editGallery").append(figure);
+}
