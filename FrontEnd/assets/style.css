@@ -152,6 +152,7 @@ body {
 	color: white;
 	width: 100vw;
 	margin-left: calc(-50vw + 50%);
+	cursor: pointer;
 }
 
 .hidden {
@@ -161,6 +162,75 @@ body {
 .edit-mode i {
 	padding-right: 0.5rem;
 }
+
+
+/* Modal */
+
+.modal {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 45%;
+	background: white;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	text-align: center;
+	display: none;
+}
+
+.modal h2 {
+	font-family: Work Sans;
+	font-size: 26px;
+	font-weight: 400;
+	text-align: center;
+	color: black;
+	margin-top: 60px;
+	margin-bottom: 45px;
+}
+
+.close-btn {
+	position: absolute;
+	top: 26px;
+	right: 30px;
+	background: none;
+	border: none;
+	cursor: pointer;
+	font-size: 24px;
+}
+
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	display: none;
+}
+
+.separator {
+	width: 70%;
+	height: 1px;
+	background: #B3B3B3;
+	margin: 38px auto;
+}
+
+.add-photo-btn {
+	font-family: Syne;
+	background: #2d6c5c;
+	color: white;
+	border: none;
+	padding: 10px 15px;
+	border-radius: 20px;
+	cursor: pointer;
+	font-size: 14px;
+	text-align: center;
+}
+
+
+/* End modal */
 
 header {
 	display: flex;
