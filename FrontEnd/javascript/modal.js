@@ -14,14 +14,4 @@ document.addEventListener("DOMContentLoaded", function() {
       overlay.style.display = "none";
   });
 
-  overlay.addEventListener("click", function() {
-      modal.style.display = "none";
-      overlay.style.display = "none";
-  });
 });
-
-function createFigure(data) {
-  const figure = document.createElement("figure");
-  figure.innerHTML = `<img src=${data.imageUrl} alt=${data.title}>`;
-  document.querySelector(".editGallery").append(figure);
-}

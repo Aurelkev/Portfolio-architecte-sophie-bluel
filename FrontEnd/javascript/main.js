@@ -13,6 +13,7 @@ async function getWorks(filter) {
     const filtered = json.filter((data) => data.categoryId === filter);
 
     document.querySelector(".gallery").innerHTML = "";
+    document.querySelector(".editGallery").innerHTML = "";
 
     if (filter === undefined) {
       for (let i = 0; i < json.length; i++) {
@@ -23,11 +24,11 @@ async function getWorks(filter) {
         createFigure(filtered[i]);
       }
     }
+    cloneImages();
   } catch (error) {
     console.error(error.message);
   }
 }
-getWorks();
 
 function createFigure(data) {
   const figure = document.createElement("figure");
@@ -37,6 +38,32 @@ function createFigure(data) {
   document.querySelector(".gallery").append(figure);
 }
 
+function cloneImages() {
+  const gallery = document.querySelector(".gallery");
+  const editGallery = document.querySelector(".editGallery");
+
+  editGallery.innerHTML = "";
+
+  gallery.querySelectorAll("figure").forEach((figure) => {
+    const clonedFigure = document.createElement("figure");
+    clonedFigure.classList.add("cloned-figure");
+
+    const clonedImg = document.createElement("img");
+    const originalImg = figure.querySelector("img");
+    clonedImg.src = originalImg.src;
+    clonedImg.alt = originalImg.alt;
+
+    const deleteIcon = document.createElement("i");
+    deleteIcon.classList.add("fa-solid", "fa-trash-can", "delete-icon");
+
+    clonedFigure.appendChild(clonedImg);
+    clonedFigure.appendChild(deleteIcon);
+    editGallery.appendChild(clonedFigure);
+  });
+}
+
+
+getWorks();
 async function getCategories() {
   const url = "http://localhost:5678/api/categories";
   try {
