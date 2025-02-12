@@ -152,7 +152,6 @@ body {
 	color: white;
 	width: 100vw;
 	margin-left: calc(-50vw + 50%);
-	cursor: pointer;
 }
 
 .hidden {
@@ -360,24 +359,25 @@ a:hover {
 	margin-bottom: 0.5em;
 }
 
-#projects {
+.projects {
 	display: flex;
-  justify-content: center; 
-  align-items: center; 
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 1em;
+	width: 100%;
 }
 
 #portfolio h2 {
-	align-items: center;
-	text-align: center;
-	margin-bottom: 1em;
-	width: 100%;
-	flex-shrink: 0; 
+	margin: 0;
+	flex-shrink: 0;
 }
 
 .modify {
-	margin-left: 10px;
-	display: inline-flex;
-	align-items: center;
+	padding-left: 30px;
+	cursor: pointer;
+}
+.fa-solid {
+	margin-right: 5px;
 }
 
 .filter-container {

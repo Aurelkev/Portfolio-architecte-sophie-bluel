@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", function() {
-  const editModeBtn = document.querySelector(".edit-mode");
+  const modifyMode = document.querySelector(".modify");
   const modal = document.querySelector(".modal");
   const overlay = document.querySelector(".overlay");
   const closeBtn = document.querySelector(".close-btn");
 
-  editModeBtn.addEventListener("click", function() {
+  modifyMode.addEventListener("click", function() {
       modal.style.display = "block";
       overlay.style.display = "block";
   });

@@ -11,7 +11,7 @@ async function getWorks(filter) {
 
     const json = await response.json();
     const filtered = json.filter((data) => data.categoryId === filter);
-
+    console.log("Images récupérées depuis l'API:", json)
     document.querySelector(".gallery").innerHTML = "";
     document.querySelector(".editGallery").innerHTML = "";
 
@@ -37,6 +37,7 @@ function createFigure(data) {
 				<figcaption>${data.title}</figcaption>`;
 
   document.querySelector(".gallery").append(figure);
+  console.log("Image ajoutée:", data);
 }
 
 function cloneImages() {
@@ -54,7 +55,7 @@ function cloneImages() {
     clonedImg.src = originalImg.src;
     clonedImg.alt = originalImg.alt;
 
-    const imageId = figure.getAttribute("data-id"); 
+    const imageId = figure.getAttribute("data-id");
     clonedFigure.setAttribute("data-id", imageId);
 
     const deleteIcon = document.createElement("i");
@@ -128,17 +129,53 @@ async function deleteImage(clonedFigure, imageId) {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${authToken}` 
+        "Authorization": `Bearer ${authToken}`
       }
     });
 
     if (!response.ok) {
       throw new Error(`Erreur lors de la suppression : ${response.status}`);
     }
-
+    /* delete from modal */
     clonedFigure.remove();
     console.log(`Image ${imageId} supprimée avec succès.`);
+
+    /* delete from principal gallery */
+    const originalFigure = document.querySelector(`.gallery figure[data-id='${imageId}']`);
+    if (originalFigure) {
+      originalFigure.remove();
+      console.log(`Image ${imageId} supprimée de la galerie principale.`);
+    } else {
+      console.warn(`Aucune image originale trouvée avec l'ID ${imageId}`);
+    }
   } catch (error) {
     console.error("Erreur:", error.message);
   }
 }
+
+function resetGallery() {
+  console.log("Réinitialisation de la galerie...");
+  const gallery = document.querySelector(".gallery");
+  const editGallery = document.querySelector(".editGallery");
+
+  if (!gallery || !editGallery) {
+    console.error("Erreur : impossible de trouver les galeries.");
+    return;
+  }
+
+  gallery.innerHTML = ""; 
+  editGallery.innerHTML = ""; 
+
+  getWorks(); 
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const resetBtn = document.getElementById("reset-btn");
+
+  if (resetBtn) {
+    resetBtn.addEventListener("click", resetGallery);
+    console.log("Bouton Réinitialiser prêt !");
+  } else {
+    console.error("Le bouton Réinitialiser est introuvable !");
+  }
+});
