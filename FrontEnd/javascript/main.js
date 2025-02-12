@@ -152,30 +152,3 @@ async function deleteImage(clonedFigure, imageId) {
     console.error("Erreur:", error.message);
   }
 }
-
-function resetGallery() {
-  console.log("Réinitialisation de la galerie...");
-  const gallery = document.querySelector(".gallery");
-  const editGallery = document.querySelector(".editGallery");
-
-  if (!gallery || !editGallery) {
-    console.error("Erreur : impossible de trouver les galeries.");
-    return;
-  }
-
-  gallery.innerHTML = ""; 
-  editGallery.innerHTML = ""; 
-
-  getWorks(); 
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-  const resetBtn = document.getElementById("reset-btn");
-
-  if (resetBtn) {
-    resetBtn.addEventListener("click", resetGallery);
-    console.log("Bouton Réinitialiser prêt !");
-  } else {
-    console.error("Le bouton Réinitialiser est introuvable !");
-  }
-});
