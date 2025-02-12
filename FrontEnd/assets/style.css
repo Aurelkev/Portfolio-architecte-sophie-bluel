@@ -217,39 +217,40 @@ body {
 }
 
 .editGallery img {
-  display: block;
-  width: 100px;
-  height: auto;
-  border-radius: 5px;
+	display: block;
+	width: 100px;
+	height: auto;
+	border-radius: 5px;
 }
+
 .editGallery figure {
-  position: relative;
-  display: inline-block;
-  margin: 10px;
+	position: relative;
+	display: inline-block;
+	margin: 10px;
 }
 
 .editGallery img {
-  display: block;
-  width: 100px; 
-  height: auto;
-  border-radius: 5px;
+	display: block;
+	width: 100px;
+	height: auto;
+	border-radius: 5px;
 }
 
 .delete-icon {
-  position: absolute;
-  top: 5px; 
-  right: 5px; 
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-  padding: 3px;
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	color: white;
+	font-size: 16px;
+	cursor: pointer;
+	padding: 3px;
 	background-color: black;
 	border-radius: 2px;
-  width: 15px;
-  height: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	width: 15px;
+	height: 15px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .separator {
@@ -359,9 +360,24 @@ a:hover {
 	margin-bottom: 0.5em;
 }
 
+#projects {
+	display: flex;
+  justify-content: center; 
+  align-items: center; 
+}
+
 #portfolio h2 {
+	align-items: center;
 	text-align: center;
 	margin-bottom: 1em;
+	width: 100%;
+	flex-shrink: 0; 
+}
+
+.modify {
+	margin-left: 10px;
+	display: inline-flex;
+	align-items: center;
 }
 
 .filter-container {
