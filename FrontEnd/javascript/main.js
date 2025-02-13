@@ -156,8 +156,24 @@ async function deleteImage(clonedFigure, imageId) {
 document.addEventListener("DOMContentLoaded", function () {
   const modalTitle = document.getElementById("modal-title");
   const addBtn = document.getElementById("add-photo-btn");
+  const backButton = document.getElementById("backButton");
+  const uploadBox = document.getElementById("upload-box");
+  const Gallery= document.getElementById("editGallery");
 
   addBtn.addEventListener("click", function () {
     modalTitle.textContent = "Ajout photo";
+    backButton.style.display = "block"; 
+    uploadBox.style.display= "flex";
+    Gallery.style.display = "none";
+    addBtn.textContent = "Valider";
   });
+  
+  backButton.addEventListener("click", function () {
+    modalTitle.textContent = "Galerie photo";
+    backButton.style.display = "none"; 
+    uploadBox.style.display= "none";
+    Gallery.style.display = "grid";
+
+  });
+
 });

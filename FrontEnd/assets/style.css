@@ -271,8 +271,28 @@ body {
 	text-align: center;
 }
 
+.back-icon {
+	font-size: 24px;
+	width: 21px;
+	cursor: pointer;
+	position: absolute;
+	top: 26px;
+	left: 30px;
+}
 
-/* End modal */
+
+.display {
+	display: block;
+}
+
+.box {
+	flex-direction: column;
+	background-color: blue;
+}
+
+.display-none {
+	display: none;
+}
 
 header {
 	display: flex;
@@ -376,6 +396,7 @@ a:hover {
 	padding-left: 30px;
 	cursor: pointer;
 }
+
 .fa-solid {
 	margin-right: 5px;
 }
