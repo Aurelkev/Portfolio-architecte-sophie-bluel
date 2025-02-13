@@ -146,9 +146,18 @@ async function deleteImage(clonedFigure, imageId) {
       originalFigure.remove();
       console.log(`Image ${imageId} supprimée de la galerie principale.`);
     } else {
-      console.warn(`Aucune image originale trouvée avec l'ID ${imageId}`);
+      console.log(`Aucune image originale trouvée avec l'ID ${imageId}`);
     }
   } catch (error) {
     console.error("Erreur:", error.message);
   }
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  const modalTitle = document.getElementById("modal-title");
+  const addBtn = document.getElementById("add-photo-btn");
+
+  addBtn.addEventListener("click", function () {
+    modalTitle.textContent = "Ajout photo";
+  });
+});
