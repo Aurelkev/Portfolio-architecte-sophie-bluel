@@ -294,7 +294,6 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
 	width: 420px;
 	height: 170px;
 	border-radius: 3px;
@@ -337,6 +336,32 @@ body {
   color: #666;
 }
 
+#form-post {
+		width: 100%;
+		max-width: 500px;
+		margin: 20px auto;
+		flex-direction: column;
+		align-items: flex-start;
+}
+
+#form-post form {
+	flex-direction: column;
+	flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+}
+
+input[type="text"], select {
+  width: 100%;
+  max-width: 500px;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: white;
+}
 
 .display-none {
 	display: none;

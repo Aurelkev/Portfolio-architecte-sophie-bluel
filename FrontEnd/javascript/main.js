@@ -159,12 +159,14 @@ document.addEventListener("DOMContentLoaded", function () {
   const backButton = document.getElementById("backButton");
   const uploadBox = document.getElementById("upload-box");
   const Gallery= document.getElementById("editGallery");
+  const formPost = document.getElementById("form-post");
 
   addBtn.addEventListener("click", function () {
     modalTitle.textContent = "Ajout photo";
     backButton.style.display = "block"; 
     uploadBox.style.display= "flex";
     Gallery.style.display = "none";
+    formPost.style.display = "flex";
     addBtn.textContent = "Valider";
   });
   
@@ -173,7 +175,27 @@ document.addEventListener("DOMContentLoaded", function () {
     backButton.style.display = "none"; 
     uploadBox.style.display= "none";
     Gallery.style.display = "grid";
+    formPost.style.display = "none";
 
   });
 
+});
+
+
+document.addEventListener("DOMContentLoaded", async function () {
+  const categorySelect = document.getElementById("category");
+
+  try {
+      const response = await fetch("http://localhost:5678/api/categories");
+      const categories = await response.json();
+
+      categories.forEach(category => {
+          const option = document.createElement("option");
+          option.value = category.id;  
+          option.textContent = category.name; 
+          categorySelect.appendChild(option);
+      });
+  } catch (error) {
+      console.error("Erreur lors du chargement des catégories :", error);
+  }
 });

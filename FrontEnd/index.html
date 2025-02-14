@@ -23,20 +23,32 @@
 	<aside>
 		<div class="overlay"></div>
 		<div class="modal">
-			<i id="backButton" class="fa-solid fa-arrow-left back-icon"></i>
+			<i id="backButton" class="fa-solid fa-arrow-left back-icon display-none"></i>
 			<button class="close-btn"><i class="fa-solid fa-xmark"></i></button>
 			<h2 id="modal-title">Galerie photo</h2>
 
 			<div id="editGallery" class="editGallery"></div>
 			<div id="upload-box" class="box display-none">
-				<i class="fa-regular fa-image"></i>
+				<div>
+					<i class="fa-regular fa-image"></i>
 
-				<button class="upload-btn">
-					<input type="file" id="fileInput" accept="image/png, image/jpeg">
-					<p>+ Ajouter photo</p>
-				</button>
+					<button class="upload-btn">
+						<input type="file" id="fileInput" accept="image/png, image/jpeg">
+						<p>+ Ajouter photo</p>
+					</button>
 
-				<p class="file-info">jpg, png : 4mo max</p>
+					<p class="file-info">jpg, png : 4mo max</p>
+				</div>
+			</div>
+			<div id="form-post" class="display-none">
+				<form action="#" method="post">
+					<label for="title">Title</label>
+					<input type="text" name="title" id="title">
+					<label for="category">Catégorie</label>
+					<select name="category" id="category">
+						<option value="" disabled selected>Choisissez une catégorie</option>
+				</select>
+				</form>
 			</div>
 
 
