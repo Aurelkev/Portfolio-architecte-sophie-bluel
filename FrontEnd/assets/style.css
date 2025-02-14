@@ -287,8 +287,56 @@ body {
 
 .box {
 	flex-direction: column;
-	background-color: blue;
+	background-color: #E8F1F6;
 }
+
+#upload-box {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+	width: 420px;
+	height: 170px;
+	border-radius: 3px;
+}
+
+#upload-box i {
+  font-size: 75px;
+  color: #B9C5CC;
+	padding-bottom: 10px;
+	
+}
+
+.upload-btn {
+  position: relative;
+  display: inline-block;
+  background-color: #dfe6ed;
+  color: #306685;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  z-index: 0;
+	width: 50%;
+}
+
+.upload-btn input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.file-info {
+  font-size: 12px;
+  color: #666;
+}
+
 
 .display-none {
 	display: none;
