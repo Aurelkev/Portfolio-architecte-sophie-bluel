@@ -117,10 +117,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 async function deleteImage(clonedFigure, imageId) {
-  if (!imageId) {
-    console.log("Impossible de supprimer l'image : ID introuvable.");
-    return;
-  }
   const authToken = sessionStorage.getItem("authToken");
   const deleteApi = `http://localhost:5678/api/works/${imageId}`;
 
