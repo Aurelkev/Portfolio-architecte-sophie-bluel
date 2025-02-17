@@ -301,7 +301,6 @@ body {
 	width: 420px;
 	height: 170px;
 	border-radius: 3px;
-	transform: translateX(20px);
 	overflow: hidden;
 }
 
