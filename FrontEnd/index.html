@@ -23,25 +23,27 @@
 	<div class="overlay"></div>
 	<aside class="modal">
 		<div id="editGallery" class="modal-wrapper">
-			<i class="fa-solid fa-arrow-left back-icon display-none"></i>
+			<i id="arrow" class="fa-solid fa-arrow-left"></i>
 			<button class="close-btn"><i class="fa-solid fa-xmark"></i></button>
 			<h2 class="modal-title">Galerie photo</h2>
 			<div class="modalContent">
 			</div>
 			<button id="add-photo-btn">Ajouter une photo</button>
 		</div>
-		<div class="modal-wrapper display-none" id="addPicture">
-			<div class="modalHeader"><i class="fa-solid fa-arrow-left"></i><i class="fa-solid fa-xmark"></i></div>
+		<div class="modal-wrapper" id="addPicture">
+			<div class="modalHeader">
+				<button class="left-arrow"><i class="fa-solid fa-arrow-left"></i></button>
+				<button class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+			</div>
 			<h2 class="modalTitle">Ajout photo</h2>
 			<div class="modalContent">
 				<form id="addPictureForm" name="addPictureForm">
 					<div id="labelPhoto">
-						<img src="./assets/icons/picture.png" id="picture" alt="choisir une image">
+						<i class="fa-regular fa-image"></i>
 						<label for="photo" id="browsePictures">+ Ajouter photo</label>
 						<p>jpg, png : 4mo max</p>
 					</div>
 					<div id="picturePreview">
-						<img src="#" alt="votre image" id="picturePreviewImg">
 					</div>
 					<input type="file" class="photo" name="photo" id="photo" accept="image/png, image/jpeg" required>
 					<label for="title">Titre</label>
@@ -49,9 +51,10 @@
 					<label for="selectCategory">Catégorie</label>
 					<select id="selectCategory" name="selectCategory">
 					</select>
-				</form>
+
 			</div>
 			<input type="submit" id="valider" value="valider">
+			</form>
 		</div>
 	</aside>
 	<header>

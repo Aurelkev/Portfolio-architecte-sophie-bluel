@@ -149,16 +149,30 @@ async function deleteImage(clonedFigure, imageId) {
   }
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-  const pictureMode = document.getElementById("addPictureBtn");
+document.addEventListener("DOMContentLoaded", function () {
+  const pictureMode = document.getElementById("add-photo-btn");
+  const editGallery = document.getElementById("editGallery");
+  const addPicture = document.getElementById("addPicture");
+  const arrows = document.querySelectorAll(".fa-arrow-left");
+  const closeButtons = document.querySelectorAll(".close-btn");
 
-  pictureMode.addEventListener("click", function() {
-      
+
+  pictureMode.addEventListener("click", function () {
+    editGallery.style.display = "none";
+    addPicture.style.display = "block";
+
   });
 
-  closeBtn.addEventListener("click", function() {
-      modal.style.display = "none";
-      overlay.style.display = "none";
+  arrows.forEach(arrow => {
+    arrow.addEventListener("click", function () {
+      addPicture.classList.add("hidden");
+      editGallery.classList.remove("hidden");
+    });
   });
 
+  closeButtons.forEach(button => {
+    button.addEventListener("click", function () {
+      document.querySelector(".modal").style.display = "none";
+    });
+  });
 });

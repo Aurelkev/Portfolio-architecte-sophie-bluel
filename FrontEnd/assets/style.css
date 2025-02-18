@@ -158,12 +158,22 @@ body {
 	display: none;
 }
 
+
 .edit-mode i {
 	padding-right: 0.5rem;
 }
 
 
 /* Modal */
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.6);
+	display: none;
+}
 
 .modal {
 	position: fixed;
@@ -199,19 +209,25 @@ body {
 	font-size: 24px;
 }
 
+#arrow {
+	display: none;
+}
+
+
+.left-arrow {
+	position: absolute;
+	top: 26px;
+	left: 30px;
+	background: none;
+	border: none;
+	cursor: pointer;
+	font-size: 24px;
+}
+
 #title {
 	width: 96%;
 }
 
-.overlay {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background: rgba(0, 0, 0, 0.6);
-	display: none;
-}
 
 .modal-wrapper img {
 	display: block;
@@ -222,7 +238,7 @@ body {
 
 
 .modalContent {
-	width: 70%;
+	width: 100%;
 	border-bottom: 1px solid #B3B3B3;
 	padding-bottom: 47px;
 }
@@ -256,6 +272,26 @@ body {
 	grid-row-gap: 10px;
 }
 
+#labelPhoto {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: auto;
+	background-color: #E8F1F6;
+	border-radius: 3px;
+	margin-bottom: 30px;
+	text-align: center;
+	width: auto;
+	padding-top: 25px;
+	position: relative;
+	box-sizing: border-box;
+}
+#labelPhoto p {
+	font-size: 10px;
+	font-weight: 400;
+}
+
 
 #add-photo-btn {
 	font-family: Syne;
@@ -271,20 +307,6 @@ body {
 	margin-top: 20px;
 }
 
-.back-icon {
-	font-size: 24px;
-	width: 21px;
-	cursor: pointer;
-	position: absolute;
-	top: 26px;
-	left: 30px;
-}
-
-
-.box {
-	flex-direction: column;
-	background-color: #E8F1F6;
-}
 
 #upload-box {
 	flex-direction: column;
@@ -296,12 +318,6 @@ body {
 	overflow: hidden;
 }
 
-#upload-box i {
-	font-size: 75px;
-	color: #B9C5CC;
-	padding-bottom: 10px;
-
-}
 
 .upload-btn {
 	position: relative;
@@ -326,52 +342,6 @@ body {
 	opacity: 0;
 	cursor: pointer;
 	z-index: 1;
-}
-
-.frame-img {
-	display: flex;
-	flex-direction: column;
-}
-
-.file-info {
-	font-size: 12px;
-	color: #666;
-}
-
-#form-post {
-	width: 100%;
-	max-width: 500px;
-	margin: 20px auto;
-	flex-direction: column;
-	align-items: flex-start;
-}
-
-#form-post form {
-	flex-direction: column;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	width: 100%;
-
-}
-
-#form-post label {
-	align-items: start;
-}
-
-input[type="text"],
-select {
-	width: 100%;
-	max-width: 500px;
-	padding: 10px;
-	margin-top: 10px;
-	border: 1px solid #ccc;
-	border-radius: 5px;
-	background: white;
-}
-
-.display-none {
-	display: none;
 }
 
 header {
