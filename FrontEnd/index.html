@@ -20,41 +20,38 @@
 
 <body>
 	<p class="edit-mode hidden"><i class="fa-regular fa-pen-to-square"></i>Mode édition</p>
-	<aside>
-		<div class="overlay"></div>
-		<div class="modal">
-			<i id="backButton" class="fa-solid fa-arrow-left back-icon display-none"></i>
+	<div class="overlay"></div>
+	<aside class="modal">
+		<div id="editGallery" class="modal-wrapper">
+			<i class="fa-solid fa-arrow-left back-icon display-none"></i>
 			<button class="close-btn"><i class="fa-solid fa-xmark"></i></button>
-			<h2 id="modal-title">Galerie photo</h2>
-
-			<div id="editGallery" class="editGallery"></div>
-			<form action="#" method="post">
-				<div id="upload-box" class="box display-none">
-					<div class="frame-img">
-						<i class="fa-regular fa-image"></i>
-						<button class="upload-btn">
-							<input type="file" id="fileInput" accept="image/png, image/jpeg">
-							<p>+ Ajouter photo</p>
-						</button>
-
-						<p class="file-info">jpg, png : 4mo max</p>
-					</div>
-				</div>
-				<div id="form-post" class="display-none">
-					<label for="title">Title</label>
-					<input type="text" name="title" id="title">
-					<label for="category">Catégorie</label>
-					<select name="category" id="category">
-						<option value="" disabled selected></option>
-					</select>
-			</form>
+			<h2 class="modal-title">Galerie photo</h2>
+			<div class="modalContent">
+			</div>
+			<button id="add-photo-btn">Ajouter une photo</button>
 		</div>
-
-
-		<div class="separator"></div>
-
-		<button class="add-photo-btn" id="add-photo-btn">Ajouter une photo</button>
-
+		<div class="modal-wrapper display-none" id="addPicture">
+			<div class="modalHeader"><i class="fa-solid fa-arrow-left"></i><i class="fa-solid fa-xmark"></i></div>
+			<h2 class="modalTitle">Ajout photo</h2>
+			<div class="modalContent">
+				<form id="addPictureForm" name="addPictureForm">
+					<div id="labelPhoto">
+						<img src="./assets/icons/picture.png" id="picture" alt="choisir une image">
+						<label for="photo" id="browsePictures">+ Ajouter photo</label>
+						<p>jpg, png : 4mo max</p>
+					</div>
+					<div id="picturePreview">
+						<img src="#" alt="votre image" id="picturePreviewImg">
+					</div>
+					<input type="file" class="photo" name="photo" id="photo" accept="image/png, image/jpeg" required>
+					<label for="title">Titre</label>
+					<input type="text" id="title" name="title" required>
+					<label for="selectCategory">Catégorie</label>
+					<select id="selectCategory" name="selectCategory">
+					</select>
+				</form>
+			</div>
+			<input type="submit" id="valider" value="valider">
 		</div>
 	</aside>
 	<header>

@@ -213,30 +213,22 @@ body {
 	display: none;
 }
 
-.editGallery {
-	display: grid;
-	grid-template-columns: repeat(5, 1fr);
-	grid-row-gap: 20px;
-}
-
-.editGallery img {
+.modal-wrapper img {
 	display: block;
 	width: 100px;
 	height: auto;
 	border-radius: 5px;
 }
 
-.editGallery figure {
+
+.modalContent {
+	width: 70%;
+	border-bottom: 1px solid #B3B3B3;
+	padding-bottom: 47px;
+}
+
+.cloned-figure {
 	position: relative;
-	display: inline-block;
-	margin: 10px;
-}
-
-.editGallery img {
-	display: block;
-	width: 100px;
-	height: auto;
-	border-radius: 5px;
 }
 
 .delete-icon {
@@ -256,23 +248,27 @@ body {
 	justify-content: center;
 }
 
-.separator {
-	width: 100%;
-	height: 1px;
-	background: #B3B3B3;
-	margin: 38px auto;
+#editGallery .modalContent {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-auto-rows: 1fr;
+	grid-column-gap: 8px;
+	grid-row-gap: 10px;
 }
 
-.add-photo-btn {
+
+#add-photo-btn {
 	font-family: Syne;
 	background: #2d6c5c;
 	color: white;
 	border: none;
-	padding: 10px 15px;
 	border-radius: 20px;
 	cursor: pointer;
 	font-size: 14px;
 	text-align: center;
+	width: auto;
+	padding: 10px 49px;
+	margin-top: 20px;
 }
 
 .back-icon {
@@ -284,10 +280,6 @@ body {
 	left: 30px;
 }
 
-
-.display {
-	display: block;
-}
 
 .box {
 	flex-direction: column;
@@ -517,12 +509,13 @@ a:hover {
 	width: 100%;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
-	grid-column-gap: 20px;
-	grid-row-gap: 20px;
+	grid-column-gap: 8px;
+	grid-row-gap: 10px;
 }
 
 .gallery img {
 	width: 100%;
+	object-fit: cover;
 
 }
 

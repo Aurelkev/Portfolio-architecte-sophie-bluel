@@ -13,7 +13,7 @@ async function getWorks(filter) {
     const filtered = json.filter((data) => data.categoryId === filter);
     console.log("Images récupérées depuis l'API:", json)
     document.querySelector(".gallery").innerHTML = "";
-    document.querySelector(".editGallery").innerHTML = "";
+    document.querySelector(".modalContent").innerHTML = "";
 
     if (filter === undefined) {
       for (let i = 0; i < json.length; i++) {
@@ -42,9 +42,9 @@ function createFigure(data) {
 
 function cloneImages() {
   const gallery = document.querySelector(".gallery");
-  const editGallery = document.querySelector(".editGallery");
+  const modalContent = document.querySelector(".modalContent");
 
-  editGallery.innerHTML = "";
+  modalContent.innerHTML = "";
 
   gallery.querySelectorAll("figure").forEach((figure) => {
     const clonedFigure = document.createElement("figure");
@@ -67,7 +67,7 @@ function cloneImages() {
 
     clonedFigure.appendChild(clonedImg);
     clonedFigure.appendChild(deleteIcon);
-    editGallery.appendChild(clonedFigure);
+    modalContent.appendChild(clonedFigure);
   });
 }
 
@@ -149,74 +149,16 @@ async function deleteImage(clonedFigure, imageId) {
   }
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-  const modalTitle = document.getElementById("modal-title");
-  const addBtn = document.getElementById("add-photo-btn");
-  const backButton = document.getElementById("backButton");
-  const uploadBox = document.getElementById("upload-box");
-  const Gallery = document.getElementById("editGallery");
-  const formPost = document.getElementById("form-post");
+document.addEventListener("DOMContentLoaded", function() {
+  const pictureMode = document.getElementById("addPictureBtn");
 
-  addBtn.addEventListener("click", function () {
-    modalTitle.textContent = "Ajout photo";
-    backButton.style.display = "block";
-    uploadBox.style.display = "flex";
-    Gallery.style.display = "none";
-    formPost.style.display = "flex";
-    addBtn.textContent = "Valider";
+  pictureMode.addEventListener("click", function() {
+      
   });
 
-  backButton.addEventListener("click", function () {
-    modalTitle.textContent = "Galerie photo";
-    backButton.style.display = "none";
-    uploadBox.style.display = "none";
-    Gallery.style.display = "grid";
-    formPost.style.display = "none";
-
+  closeBtn.addEventListener("click", function() {
+      modal.style.display = "none";
+      overlay.style.display = "none";
   });
 
 });
-
-
-document.addEventListener("DOMContentLoaded", async function () {
-  const categorySelect = document.getElementById("category");
-
-  try {
-    const response = await fetch("http://localhost:5678/api/categories");
-    const categories = await response.json();
-
-    categories.forEach(category => {
-      const option = document.createElement("option");
-      option.value = category.id;
-      option.textContent = category.name;
-      categorySelect.appendChild(option);
-    });
-  } catch (error) {
-    console.error("Erreur lors du chargement des catégories :", error);
-  }
-});
-
-/* Show img */
-
-document.getElementById("fileInput").addEventListener("change", function (event) {
-  const file = event.target.files[0];
-
-  if (file) {
-    const reader = new FileReader();
-    reader.onload = function (e) {
-      const uploadBox = document.getElementById("upload-box");
-      uploadBox.innerHTML = "";
-      const img = document.createElement("img");
-      img.src = e.target.result;
-      img.alt = "Image sélectionnée";
-      img.style.maxWidth = "50%";
-      img.style.display = "block";
-
-      uploadBox.appendChild(img);
-    };
-
-    reader.readAsDataURL(file);
-  }
-});
-
-
