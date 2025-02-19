@@ -287,11 +287,37 @@ body {
 	position: relative;
 	box-sizing: border-box;
 }
+
 #labelPhoto p {
 	font-size: 10px;
 	font-weight: 400;
 }
 
+.fa-image {
+	font-size: 76px;
+	color: #B9C5CC;
+}
+
+#browsePictures {
+	display: inline-block;
+	padding: 10px 33px;
+	background-color: #CBD6DC;
+	color: #306685;
+	font-size: 14px;
+	text-align: center;
+	border-radius: 20px;
+	cursor: pointer;
+
+}
+
+#browsePictures:hover {
+	background-color: #c0cace;
+}
+
+
+#photo {
+	display: none;
+}
 
 #add-photo-btn {
 	font-family: Syne;

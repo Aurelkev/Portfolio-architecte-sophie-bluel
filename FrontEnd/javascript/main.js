@@ -176,3 +176,19 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+
+document.getElementById("photo").addEventListener("change", function (event) {
+  const file = event.target.files[0]; // Récupère le fichier sélectionné
+  const labelPhoto = document.getElementById("labelPhoto");
+
+  if (file) {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+          const preview = document.getElementById("picturePreview");
+          preview.innerHTML = `<img src="${e.target.result}" alt="Aperçu de l'image" style="max-width: 100%; height: auto;">`;
+          labelPhoto.style.display = "none";
+      };
+      reader.readAsDataURL(file);
+  }
+});
