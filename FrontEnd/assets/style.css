@@ -288,6 +288,7 @@ body {
 	box-sizing: border-box;
 }
 
+
 #labelPhoto p {
 	font-size: 10px;
 	font-weight: 400;
@@ -295,7 +296,7 @@ body {
 
 .form-label label {
 	display: flex;
-	margin : 10px 0;
+	margin: 10px 0;
 
 }
 
@@ -329,8 +330,19 @@ body {
 }
 
 #picturePreview {
-	display: flex;
+	display: none;
 	justify-content: center;
+	background-color: #E8F1F6;
+  background-size: cover;
+  background-position: center; 
+}
+
+#picturePreview img {
+	max-width: 500px;
+	max-height: 150px;
+	width: auto;
+	height: auto;
+	object-fit: contain;
 }
 
 #add-photo-btn {
@@ -348,7 +360,7 @@ body {
 }
 
 #valider {
-	background-color: #A7A7A7; 
+	background-color: #A7A7A7;
 	color: white;
 	border: none;
 	width: auto;
@@ -359,7 +371,7 @@ body {
 }
 
 #valider.enabled {
-	background-color: #1D6154; 
+	background-color: #1D6154;
 	cursor: pointer;
 	opacity: 1;
 }
@@ -560,7 +572,8 @@ input[type="submit"] {
 	margin-top: 20px;
 }
 
-input, select {
+input,
+select {
 	width: 100%;
 	padding: 12px;
 	border: 1px solid #ddd;

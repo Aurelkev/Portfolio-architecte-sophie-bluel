@@ -81,13 +81,13 @@ async function getCategories() {
 
   selectCategory.innerHTML = '<option value=""></option>';
 
-   json.forEach(category => {
-      createFilter(category);
-      const option = document.createElement("option");
-      option.value = category.id;
-      option.textContent = category.name;
-      selectCategory.appendChild(option);
-    });
+  json.forEach(category => {
+    createFilter(category);
+    const option = document.createElement("option");
+    option.value = category.id;
+    option.textContent = category.name;
+    selectCategory.appendChild(option);
+  });
 
 }
 
@@ -164,17 +164,16 @@ document.addEventListener("DOMContentLoaded", function () {
   const arrows = document.querySelectorAll(".fa-arrow-left");
   const closeButtons = document.querySelectorAll(".close-btn");
 
-
   pictureMode.addEventListener("click", function () {
     editGallery.style.display = "none";
     addPicture.style.display = "block";
-
   });
 
   arrows.forEach(arrow => {
     arrow.addEventListener("click", function () {
       addPicture.classList.add("hidden");
       editGallery.classList.remove("hidden");
+      resetPreview();
     });
   });
 
@@ -183,90 +182,92 @@ document.addEventListener("DOMContentLoaded", function () {
       document.querySelector(".modal").style.display = "none";
     });
   });
-});
 
+  function resetPreview() {
+    const labelPhoto = document.getElementById("labelPhoto");
+    const preview = document.getElementById("picturePreview");
+    preview.innerHTML = "";
+    labelPhoto.style.display = "flex";
+    preview.style.display = "none";
+  };
 
-document.getElementById("photo").addEventListener("change", function (event) {
-  const file = event.target.files[0];
-  const labelPhoto = document.getElementById("labelPhoto");
+  document.getElementById("photo").addEventListener("change", function (event) {
+    const file = event.target.files[0];
+    const labelPhoto = document.getElementById("labelPhoto");
 
-  if (file) {
+    if (file) {
       const reader = new FileReader();
       reader.onload = function (e) {
-          const preview = document.getElementById("picturePreview");
-          preview.innerHTML = `<img src="${e.target.result}" alt="Aperçu de l'image" style="max-width: 100%; height: auto;">`;
-          labelPhoto.style.display = "none";
+        const preview = document.getElementById("picturePreview");
+        preview.innerHTML = `<img src="${e.target.result}" alt="Aperçu de l'image" style="max-width: 100%; height: auto;">`;
+        labelPhoto.style.display = "none";
+        preview.style.display = "flex";
       };
       reader.readAsDataURL(file);
-  }
-});
+    }
+  });
 
-
-
-document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("addPictureForm");
   const photoInput = document.getElementById("photo");
   const titleInput = document.getElementById("title");
   const categorySelect = document.getElementById("selectCategory");
   const submitButton = document.getElementById("valider");
-  const labelPhoto = document.getElementById("labelPhoto");
 
   submitButton.disabled = true;
 
   function checkFormValidity() {
-      const isPhotoSelected = photoInput.files.length > 0;
-      const isTitleFilled = titleInput.value.trim() !== "";
-      const isCategorySelected = categorySelect.value !== "";
+    const isPhotoSelected = photoInput.files.length > 0;
+    const isTitleFilled = titleInput.value.trim() !== "";
+    const isCategorySelected = categorySelect.value !== "";
 
-      if (isPhotoSelected && isTitleFilled && isCategorySelected) {
-          submitButton.disabled = false;
-          submitButton.classList.add("enabled"); 
-      } else {
-          submitButton.disabled = true;
-          submitButton.classList.remove("enabled"); 
-      }
+    if (isPhotoSelected && isTitleFilled && isCategorySelected) {
+      submitButton.disabled = false;
+      submitButton.classList.add("enabled");
+    } else {
+      submitButton.disabled = true;
+      submitButton.classList.remove("enabled");
+    }
   }
 
   photoInput.addEventListener("change", checkFormValidity);
   titleInput.addEventListener("input", checkFormValidity);
   categorySelect.addEventListener("change", checkFormValidity);
 
-  
   form.addEventListener("submit", async function (event) {
-      event.preventDefault();
+    event.preventDefault();
 
-      const formData = new FormData();
-      formData.append("image", photoInput.files[0]);
-      formData.append("title", titleInput.value.trim()); 
-      formData.append("category", categorySelect.value); 
+    const formData = new FormData();
+    formData.append("image", photoInput.files[0]);
+    formData.append("title", titleInput.value.trim());
+    formData.append("category", categorySelect.value);
 
-      try {
-          const authToken = sessionStorage.getItem("authToken"); 
-          const response = await fetch("http://localhost:5678/api/works", {
-              method: "POST",
-              headers: {
-                  "Authorization": `Bearer ${authToken}`
-              },
-              body: formData
-          });
+    try {
+      const authToken = sessionStorage.getItem("authToken");
+      const response = await fetch("http://localhost:5678/api/works", {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${authToken}`
+        },
+        body: formData
+      });
 
-          if (!response.ok) {
-              throw new Error(`Erreur lors de l'envoi: ${response.status}`);
-          }
-
-          const newWork = await response.json();
-          console.log("Image ajoutée avec succès :", newWork);
-          createFigure(newWork);
-
-          form.reset();
-          submitButton.disabled = true;
-          submitButton.classList.remove("enabled");
-          labelPhoto.style.display = "flex";
-          document.getElementById("picturePreview").innerHTML = "";
-
-      } catch (error) {
-          console.error("Erreur lors de l'ajout :", error.message);
+      if (!response.ok) {
+        throw new Error(`Erreur lors de l'envoi: ${response.status}`);
       }
+
+      const newWork = await response.json();
+      console.log("Image ajoutée avec succès :", newWork);
+      createFigure(newWork);
+      cloneImages();
+
+      form.reset();
+      submitButton.disabled = true;
+      submitButton.classList.remove("enabled");
+      resetPreview();
+      labelPhoto.style.display = "flex";
+      document.getElementById("picturePreview").innerHTML = "";
+    } catch (error) {
+      console.error("Erreur lors de l'ajout :", error.message);
+    }
   });
 });
-
