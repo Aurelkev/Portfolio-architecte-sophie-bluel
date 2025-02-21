@@ -180,7 +180,7 @@ body {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	width: auto;
+	width: 560px;
 	background: white;
 	padding: 20px;
 	border-radius: 10px;
@@ -283,7 +283,7 @@ body {
 	margin-bottom: 30px;
 	text-align: center;
 	width: auto;
-	padding-top: 25px;
+	padding: 25px 0;
 	position: relative;
 	box-sizing: border-box;
 }
@@ -291,6 +291,16 @@ body {
 #labelPhoto p {
 	font-size: 10px;
 	font-weight: 400;
+}
+
+.form-label label {
+	display: flex;
+	margin : 10px 0;
+
+}
+
+#addPicture {
+	padding: 0 30px;
 }
 
 .fa-image {
@@ -314,7 +324,6 @@ body {
 	background-color: #c0cace;
 }
 
-
 #photo {
 	display: none;
 }
@@ -331,43 +340,6 @@ body {
 	width: auto;
 	padding: 10px 49px;
 	margin-top: 20px;
-}
-
-
-#upload-box {
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	width: 420px;
-	height: 170px;
-	border-radius: 3px;
-	overflow: hidden;
-}
-
-
-.upload-btn {
-	position: relative;
-	display: inline-block;
-	background-color: #dfe6ed;
-	color: #306685;
-	padding: 10px 20px;
-	border-radius: 20px;
-	font-weight: bold;
-	cursor: pointer;
-	border: none;
-	z-index: 0;
-	width: 100%;
-}
-
-.upload-btn input {
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	opacity: 0;
-	cursor: pointer;
-	z-index: 1;
 }
 
 header {
@@ -553,14 +525,27 @@ a:hover {
 }
 
 input[type="submit"] {
-	font-family: 'Syne';
-	font-weight: 700;
+	font-family: Syne;
+	background: #2d6c5c;
 	color: white;
-	background-color: #1D6154;
-	margin: 2em auto;
-	width: 180px;
+	border: none;
+	border-radius: 20px;
+	cursor: pointer;
+	font-size: 14px;
 	text-align: center;
-	border-radius: 60px;
+	width: auto;
+	padding: 10px 49px;
+	margin-top: 20px;
+}
+
+input, select {
+	width: 100%;
+	padding: 12px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	font-size: 16px;
+	background: white;
+	box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 #login {

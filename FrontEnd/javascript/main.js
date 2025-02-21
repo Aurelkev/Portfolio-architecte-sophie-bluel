@@ -77,9 +77,17 @@ async function getCategories() {
   const categoriesApi = "http://localhost:5678/api/categories";
   const response = await fetch(categoriesApi);
   const json = await response.json();
-  for (let i = 0; i < json.length; i++) {
-    createFilter(json[i]);
-  }
+  const selectCategory = document.getElementById("selectCategory");
+
+  selectCategory.innerHTML = '<option value=""></option>';
+
+   json.forEach(category => {
+      createFilter(category);
+      const option = document.createElement("option");
+      option.value = category.id;
+      option.textContent = category.name;
+      selectCategory.appendChild(option);
+    });
 
 }
 
@@ -192,3 +200,4 @@ document.getElementById("photo").addEventListener("change", function (event) {
       reader.readAsDataURL(file);
   }
 });
+
