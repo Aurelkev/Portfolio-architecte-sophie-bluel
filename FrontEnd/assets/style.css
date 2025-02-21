@@ -328,6 +328,11 @@ body {
 	display: none;
 }
 
+#picturePreview {
+	display: flex;
+	justify-content: center;
+}
+
 #add-photo-btn {
 	font-family: Syne;
 	background: #2d6c5c;
@@ -340,6 +345,23 @@ body {
 	width: auto;
 	padding: 10px 49px;
 	margin-top: 20px;
+}
+
+#valider {
+	background-color: #A7A7A7; 
+	color: white;
+	border: none;
+	width: auto;
+	padding: 10px 49px;
+	margin-top: 20px;
+	cursor: not-allowed;
+	transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+#valider.enabled {
+	background-color: #1D6154; 
+	cursor: pointer;
+	opacity: 1;
 }
 
 header {
