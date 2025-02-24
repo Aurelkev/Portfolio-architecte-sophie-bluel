@@ -239,7 +239,6 @@ body {
 
 .modalContent {
 	width: 100%;
-	border-bottom: 1px solid #B3B3B3;
 	padding-bottom: 47px;
 }
 
@@ -292,6 +291,11 @@ body {
 #labelPhoto p {
 	font-size: 10px;
 	font-weight: 400;
+}
+
+.form-label {
+	padding-bottom: 60px;
+	border-bottom: 1px solid #B3B3B3;
 }
 
 .form-label label {
