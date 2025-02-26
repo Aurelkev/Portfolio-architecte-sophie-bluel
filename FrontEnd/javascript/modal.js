@@ -38,4 +38,10 @@ document.addEventListener("DOMContentLoaded", function () {
             addPicture.style.display = "none";
         }
     });
+
+    overlay.addEventListener("click", function () {
+        modal.style.display = "none";
+        overlay.style.display = "none";
+        addPicture.style.display = "none";
+    });
 });
