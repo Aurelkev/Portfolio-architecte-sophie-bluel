@@ -199,7 +199,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const reader = new FileReader();
       reader.onload = function (e) {
         const preview = document.getElementById("picturePreview");
-        preview.innerHTML = `<img src="${e.target.result}" alt="Aperçu de l'image" style="max-width: 100%; height: auto;">`;
+        preview.innerHTML = `<img src="${e.target.result}" alt="Aperçu de l'image">`;
         labelPhoto.style.display = "none";
         preview.style.display = "flex";
       };
