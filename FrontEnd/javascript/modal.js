@@ -44,4 +44,6 @@ document.addEventListener("DOMContentLoaded", function () {
         overlay.style.display = "none";
         addPicture.style.display = "none";
     });
+
+    
 });

@@ -107,6 +107,8 @@ document.querySelector(".all").addEventListener("click", () => getWorks());
 document.addEventListener("DOMContentLoaded", function () {
   const displayEdit = document.querySelector(".edit-mode");
   const loginButton = document.querySelector(".login");
+  const modify = document.querySelector(".modify");
+
 
   if (sessionStorage.getItem("authToken")) {
     displayEdit.classList.remove("hidden");
@@ -118,6 +120,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (sessionStorage.getItem("authToken")) {
       sessionStorage.removeItem("authToken");
       displayEdit.classList.add("hidden");
+      modify.classList.add("hidden");
       document.querySelector(".login").innerHTML = '<a href="login-page.html">login</a>';
     }
   });
@@ -271,3 +274,5 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+
