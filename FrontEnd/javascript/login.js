@@ -21,7 +21,7 @@ async function submit() {
     body: JSON.stringify(user),
   });
 
-  if (response.status === 401) {
+  if (response.status === 401 || response.status === 404) {
     if (!document.querySelector(".error-login")) {
       const errorBox = document.createElement("div");
       errorBox.className = "error-login";
